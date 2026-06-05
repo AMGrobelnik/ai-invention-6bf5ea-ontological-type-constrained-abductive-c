@@ -1,0 +1,15 @@
+{
+  "title": "OTC Neuro-Symbolic Reasoning Paper Generation",
+  "summary": "Successfully created a publication-ready LaTeX paper with BibTeX from the provided paper text and available figures. The paper includes: (1) All 4 figures from <available_figures> properly inserted with correct captions and labels (fig1: OTC Pipeline Architecture, fig2: Dataset Statistics, fig3: Performance Comparison, fig4: Hierarchical Proof-Trace Analysis Accuracy); (2) Complete references.bib file with 11 BibTeX entries (5 fetched from Semantic Scholar API, 6 created manually with verified information); (3) All sections from the paper text properly formatted in LaTeX (Abstract, Introduction, Related Work, Methods, Experiments, Discussion, Conclusion, Acknowledgments); (4) Proper LaTeX compilation with pdflatex and bibtex producing a 14-page PDF (paper.pdf). The paper is formatted for letter paper with 1-inch margins, uses the natbib package for citations, and includes hyperref for URLs. All figures use appropriate placement (figure* for 21:9 aspect ratio architecture diagram, figure for others) with proper width/height constraints. Visual review of all 14 pages confirmed good layout with no overlapping figures or cut-off text. Compilation completed without errors - only minor overfull hbox warnings that don't affect output quality.",
+  "out_expected_files": {
+    "paper_tex_path": "paper.tex",
+    "paper_pdf_path": "paper.pdf",
+    "references_bib_path": "references.bib",
+    "figure_paths": [
+      "figures/fig1_v0.jpg",
+      "figures/fig2_v0.jpg",
+      "figures/fig3_v0.jpg",
+      "figures/fig4_v0.jpg"
+    ]
+  }
+}
