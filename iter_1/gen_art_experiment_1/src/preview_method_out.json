@@ -1,0 +1,30 @@
+{
+  "datasets": [
+    {
+      "dataset": "otc_synthetic",
+      "examples": [
+        {
+          "input": "Example 1: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_1",
+          "metadata_method": "otc",
+          "metadata_iterations": 1,
+          "metadata_added_facts": "fact_1"
+        },
+        {
+          "input": "Example 2: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_2",
+          "metadata_method": "pure_llm",
+          "metadata_iterations": 2,
+          "metadata_added_facts": "fact_2"
+        },
+        {
+          "input": "Example 3: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_3",
+          "metadata_method": "argos_simplified",
+          "metadata_iterations": 3,
+          "metadata_added_facts": "fact_3"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "datasets": [
+    {
+      "dataset": "mintujupally/ROCStories",
+      "examples": [
+        {
+          "input": "The boy went to a video arcade. He played his favorite machine. His games didn't go very well. He told the owner about his experience.",
+          "output": "The owner explained that he had made the game settings harder.",
+          "metadata_row_index": 0,
+          "metadata_domain": "narrative",
+          "metadata_task_type": "abductive"
+        },
+        {
+          "input": "Jimmy was a big fan of cricket. In summer, his dad took him to a local cricket match. The match lasted all day. In the end, Jimmy's local team won by only 2 runs.",
+          "output": "Jimmy knew he'd never see such a close game of cricket again.",
+          "metadata_row_index": 1,
+          "metadata_domain": "narrative",
+          "metadata_task_type": "abductive"
+        },
+        {
+          "input": "The baby shook from the cold room. His mother turned up the heat. The nurses kept turning it back down. She was angry that they were making him uncomfortable.",
+          "output": "She told the doctor she wanted to go home.",
+          "metadata_row_index": 2,
+          "metadata_domain": "narrative",
+          "metadata_task_type": "abductive"
+        }
+      ]
+    },
+    {
+      "dataset": "tasksource/ruletaker",
+      "examples": [
+        {
+          "input": "Context: Anne is quiet. Anne is not young. Bob is kind. Bob is young. Dave is rough. Dave is round. Dave is smart. Dave is not young. Fiona is quiet. Fiona is not round. Kind, young things are not sma",
+          "output": "entailment",
+          "metadata_row_index": 0,
+          "metadata_domain": "logical",
+          "metadata_task_type": "entailment",
+          "metadata_config": "depth-1"
+        },
+        {
+          "input": "Context: Anne is quiet. Anne is not young. Bob is kind. Bob is young. Dave is rough. Dave is round. Dave is smart. Dave is not young. Fiona is quiet. Fiona is not round. Kind, young things are not sma",
+          "output": "not entailment",
+          "metadata_row_index": 1,
+          "metadata_domain": "logical",
+          "metadata_task_type": "entailment",
+          "metadata_config": "depth-1"
+        },
+        {
+          "input": "Context: Anne is quiet. Anne is not young. Bob is kind. Bob is young. Dave is rough. Dave is round. Dave is smart. Dave is not young. Fiona is quiet. Fiona is not round. Kind, young things are not sma",
+          "output": "entailment",
+          "metadata_row_index": 2,
+          "metadata_domain": "logical",
+          "metadata_task_type": "entailment",
+          "metadata_config": "depth-1"
+        }
+      ]
+    },
+    {
+      "dataset": "suzakuteam/entailment_bank",
+      "examples": [
+        {
+          "input": "Stars are organized into patterns called constellations. One constellation is named Leo. Which statement best explains why Leo appears in different areas of the sky throughout the year?",
+          "output": "['Earth revolves around the sun.']",
+          "metadata_row_index": 0,
+          "metadata_domain": "science",
+          "metadata_task_type": "abductive",
+          "metadata_implicit_facts": "['Leo is a kind of constellation.', 'A constellation contains stars.', 'Therefore, leo is a constellation containing stars.', 'Leo is a constellation containing stars.', 'The earth revolving around th"
+        },
+        {
+          "input": "How does the appearance of a constellation change during the night?",
+          "output": "['Its position appears to shift relative to the horizon.']",
+          "metadata_row_index": 1,
+          "metadata_domain": "science",
+          "metadata_task_type": "abductive",
+          "metadata_implicit_facts": "['Earth is a kind of celestial object.', 'A star is a kind of celestial object / celestial body.', \"Apparent motion is when an object appears to move relative to another object's position.\", \"Therefor"
+        },
+        {
+          "input": "Which of the following statements best explains why stars appear to move across Earth's sky each night?",
+          "output": "['Earth rotates on its axis.']",
+          "metadata_row_index": 2,
+          "metadata_domain": "science",
+          "metadata_task_type": "abductive",
+          "metadata_implicit_facts": "[\"Diurnal motion is when objects in the sky appear to move due to earth's rotation on its axis.\", 'Stars appear to move relative to the horizon during the night.', 'Therefore, stars apearing to move r"
+        }
+      ]
+    },
+    {
+      "dataset": "tasksource/proofwriter",
+      "examples": [
+        {
+          "input": "Context: \nQuestion: Gary is white.",
+          "output": "True",
+          "metadata_row_index": 0,
+          "metadata_domain": "logical",
+          "metadata_task_type": "proof"
+        },
+        {
+          "input": "Context: \nQuestion: Gary is not nice.",
+          "output": "False",
+          "metadata_row_index": 1,
+          "metadata_domain": "logical",
+          "metadata_task_type": "proof"
+        },
+        {
+          "input": "Context: \nQuestion: Bob is furry.",
+          "output": "True",
+          "metadata_row_index": 2,
+          "metadata_domain": "logical",
+          "metadata_task_type": "proof"
+        }
+      ]
+    }
+  ]
+}

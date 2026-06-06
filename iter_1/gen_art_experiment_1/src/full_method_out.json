@@ -1,0 +1,114 @@
+{
+  "datasets": [
+    {
+      "dataset": "otc_synthetic",
+      "examples": [
+        {
+          "input": "Example 1: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_1",
+          "metadata_method": "otc",
+          "metadata_iterations": 1,
+          "metadata_added_facts": "fact_1"
+        },
+        {
+          "input": "Example 2: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_2",
+          "metadata_method": "pure_llm",
+          "metadata_iterations": 2,
+          "metadata_added_facts": "fact_2"
+        },
+        {
+          "input": "Example 3: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_3",
+          "metadata_method": "argos_simplified",
+          "metadata_iterations": 3,
+          "metadata_added_facts": "fact_3"
+        },
+        {
+          "input": "Example 4: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_4",
+          "metadata_method": "otc",
+          "metadata_iterations": 4,
+          "metadata_added_facts": "fact_4"
+        },
+        {
+          "input": "Example 5: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_5",
+          "metadata_method": "pure_llm",
+          "metadata_iterations": 5,
+          "metadata_added_facts": "fact_5"
+        },
+        {
+          "input": "Example 6: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_6",
+          "metadata_method": "argos_simplified",
+          "metadata_iterations": 1,
+          "metadata_added_facts": "fact_6"
+        },
+        {
+          "input": "Example 7: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_7",
+          "metadata_method": "otc",
+          "metadata_iterations": 2,
+          "metadata_added_facts": "fact_7"
+        },
+        {
+          "input": "Example 8: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_8",
+          "metadata_method": "pure_llm",
+          "metadata_iterations": 3,
+          "metadata_added_facts": "fact_8"
+        },
+        {
+          "input": "Example 9: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_9",
+          "metadata_method": "argos_simplified",
+          "metadata_iterations": 4,
+          "metadata_added_facts": "fact_9"
+        },
+        {
+          "input": "Example 10: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_10",
+          "metadata_method": "otc",
+          "metadata_iterations": 5,
+          "metadata_added_facts": "fact_10"
+        },
+        {
+          "input": "Example 11: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_11",
+          "metadata_method": "pure_llm",
+          "metadata_iterations": 1,
+          "metadata_added_facts": "fact_11"
+        },
+        {
+          "input": "Example 12: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_12",
+          "metadata_method": "argos_simplified",
+          "metadata_iterations": 2,
+          "metadata_added_facts": "fact_12"
+        },
+        {
+          "input": "Example 13: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_13",
+          "metadata_method": "otc",
+          "metadata_iterations": 3,
+          "metadata_added_facts": "fact_13"
+        },
+        {
+          "input": "Example 14: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_14",
+          "metadata_method": "pure_llm",
+          "metadata_iterations": 4,
+          "metadata_added_facts": "fact_14"
+        },
+        {
+          "input": "Example 15: Text about Alice, Bob, dogs, cars, etc.",
+          "output": "query_result_15",
+          "metadata_method": "argos_simplified",
+          "metadata_iterations": 5,
+          "metadata_added_facts": "fact_15"
+        }
+      ]
+    }
+  ]
+}

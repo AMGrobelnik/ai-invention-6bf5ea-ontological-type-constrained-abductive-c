@@ -1,0 +1,15 @@
+{
+  "title": "4 datasets for neuro-symbolic reasoning evaluation",
+  "layman_summary": "Four standardized datasets (ROCStories, RuleTaker, Entailment Bank, ProofWriter) for evaluating neuro-symbolic reasoning systems with abductive inference.",
+  "summary": "This artifact provides 4 standardized datasets for evaluating ontological type-constrained abductive completion in neuro-symbolic reasoning pipelines. The datasets span multiple domains (narrative, logical, science) and task types (abductive reasoning, entailment, proof-based reasoning). Dataset 1: ROCStories (1000 examples) - narrative stories where the last sentence must be abduced from previous context. Dataset 2: RuleTaker (15000 examples) - logical entailment tasks with contextual facts and questions. Dataset 3: Entailment Bank (500 examples) - science questions requiring abductive reasoning with implicit facts in chain-of-thought. Dataset 4: ProofWriter (10000 examples) - logical reasoning tasks with proof structures. All datasets are standardized to a unified JSON schema with input-output pairs and metadata fields (domain, task_type, row_index, etc.). The total dataset size is 13MB, well under the 300MB limit. Each dataset has >=100 examples for meaningful evaluation. The data.py script loads from temp/datasets/, standardizes to exp_sel_data_out.json schema, and saves to full_data_out.json. Mini (3 examples) and preview (3 truncated examples) versions are also generated.",
+  "out_expected_files": {
+    "script": "data.py",
+    "datasets": [
+      {
+        "full": ["full_data_out.json"],
+        "mini": "mini_data_out.json",
+        "preview": "preview_data_out.json"
+      }
+    ]
+  }
+}

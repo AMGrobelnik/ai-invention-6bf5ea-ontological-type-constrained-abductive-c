@@ -1,0 +1,8 @@
+[project]
+name = "neuro-symbolic-reasoning-datasets"
+version = "1.0.0"
+description = "Dataset collection for OTC neuro-symbolic reasoning evaluation"
+requires-python = ">=3.12"
+dependencies = [
+    "loguru==0.7.3",
+]

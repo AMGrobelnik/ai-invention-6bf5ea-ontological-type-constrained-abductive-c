@@ -1,0 +1,86 @@
+{
+  "datasets": [
+    {
+      "id": "mintujupally/ROCStories",
+      "domain": "narrative",
+      "task_type": "narrative reasoning",
+      "description": "ROCStories dataset for narrative understanding and commonsense reasoning",
+      "file_path": "temp/datasets/full_mintujupally_ROCStories_train.json",
+      "size_mb": 1.14,
+      "example_count": 5000,
+      "suitable_for": "abductive reasoning over narrative contexts"
+    },
+    {
+      "id": "rajpurkar/squad",
+      "domain": "reading_comprehension",
+      "task_type": "question answering",
+      "description": "SQuAD v2 for reading comprehension with implicit facts",
+      "file_path": "temp/datasets/full_rajpurkar_squad_train.json",
+      "size_mb": 4.65,
+      "example_count": 5000,
+      "suitable_for": "abductive reasoning to infer missing context facts"
+    },
+    {
+      "id": "allenai/sciq",
+      "domain": "science_qa",
+      "task_type": "multi-hop reasoning",
+      "description": "SciQ dataset for science question answering requiring multi-hop reasoning",
+      "file_path": "temp/datasets/full_allenai_sciq_train.json",
+      "size_mb": 3.04,
+      "example_count": 5000,
+      "suitable_for": "abductive reasoning over scientific facts"
+    },
+    {
+      "id": "suzakuteam/entailment_bank",
+      "domain": "abductive_reasoning",
+      "task_type": "textual entailment",
+      "description": "Entailment Bank for abductive reasoning with chain-of-thought proofs",
+      "file_path": "temp/datasets/full_suzakuteam_entailment_bank_train.json",
+      "size_mb": 1.55,
+      "example_count": 1840,
+      "suitable_for": "abductive reasoning with explicit proof chains"
+    },
+    {
+      "id": "tasksource/ruletaker",
+      "domain": "logical_reasoning",
+      "task_type": "rule-based reasoning",
+      "description": "RuleTaker dataset for logical reasoning with rules and facts",
+      "file_path": "temp/datasets/full_tasksource_ruletaker_train_sampled.json",
+      "size_mb": 6.87,
+      "example_count": 15000,
+      "suitable_for": "abductive reasoning to infer missing rules/facts"
+    },
+    {
+      "id": "tasksource/proofwriter",
+      "domain": "logical_reasoning",
+      "task_type": "proof-based reasoning",
+      "description": "ProofWriter dataset for logical reasoning with proofs",
+      "file_path": "temp/datasets/full_tasksource_proofwriter_train_sampled.json",
+      "size_mb": 9.18,
+      "example_count": 10000,
+      "suitable_for": "abductive reasoning with proof traces"
+    },
+    {
+      "id": "flaitenberger/LogicalReasoning-hard-v5",
+      "domain": "logical_reasoning",
+      "task_type": "hard logical reasoning",
+      "description": "Hard logical reasoning dataset with FOL proofs",
+      "file_path": "temp/datasets/full_flaitenberger_LogicalReasoning-hard-v5_train_sampled.json",
+      "size_mb": 44.94,
+      "example_count": 15000,
+      "suitable_for": "abductive reasoning with formal logic"
+    }
+  ],
+  "summary": {
+    "total_datasets": 7,
+    "total_size_mb": 71.37,
+    "domains_covered": ["narrative", "reading_comprehension", "science_qa", "abductive_reasoning", "logical_reasoning"],
+    "all_under_300mb": true
+  },
+  "methodology": {
+    "search_strategy": "HuggingFace Hub search with keyword queries",
+    "selection_criteria": "Downloads >100, has documentation, suitable for abductive reasoning evaluation",
+    "standardization": "Unified JSON format with input/output structure",
+    "limitations": "Some target datasets (original ROCStories, CLUTRR, CaseHOLD) have unsupported loader scripts in newer datasets library; used alternatives"
+  }
+}

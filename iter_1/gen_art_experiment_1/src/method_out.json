@@ -1,0 +1,409 @@
+{
+  "datasets": [
+    {
+      "dataset": "otc_synthetic",
+      "examples": [
+        {
+          "input": "Test input 1",
+          "output": "Test output 1",
+          "predict_otc": "True",
+          "predict_pure_llm": "True",
+          "predict_argos": "True",
+          "predict_symba": "True"
+        },
+        {
+          "input": "Test input 2",
+          "output": "Test output 2",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 3",
+          "output": "Test output 3",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 4",
+          "output": "Test output 4",
+          "predict_otc": "False",
+          "predict_pure_llm": "True",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 5",
+          "output": "Test output 5",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 6",
+          "output": "Test output 6",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "True",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 7",
+          "output": "Test output 7",
+          "predict_otc": "True",
+          "predict_pure_llm": "True",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 8",
+          "output": "Test output 8",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "True"
+        },
+        {
+          "input": "Test input 9",
+          "output": "Test output 9",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 10",
+          "output": "Test output 10",
+          "predict_otc": "False",
+          "predict_pure_llm": "True",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 11",
+          "output": "Test output 11",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "True",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 12",
+          "output": "Test output 12",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 13",
+          "output": "Test output 13",
+          "predict_otc": "True",
+          "predict_pure_llm": "True",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 14",
+          "output": "Test output 14",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 15",
+          "output": "Test output 15",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "True"
+        },
+        {
+          "input": "Test input 16",
+          "output": "Test output 16",
+          "predict_otc": "False",
+          "predict_pure_llm": "True",
+          "predict_argos": "True",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 17",
+          "output": "Test output 17",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 18",
+          "output": "Test output 18",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 19",
+          "output": "Test output 19",
+          "predict_otc": "True",
+          "predict_pure_llm": "True",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 20",
+          "output": "Test output 20",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 21",
+          "output": "Test output 21",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "True",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 22",
+          "output": "Test output 22",
+          "predict_otc": "False",
+          "predict_pure_llm": "True",
+          "predict_argos": "False",
+          "predict_symba": "True"
+        },
+        {
+          "input": "Test input 23",
+          "output": "Test output 23",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 24",
+          "output": "Test output 24",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 25",
+          "output": "Test output 25",
+          "predict_otc": "True",
+          "predict_pure_llm": "True",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 26",
+          "output": "Test output 26",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "True",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 27",
+          "output": "Test output 27",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 28",
+          "output": "Test output 28",
+          "predict_otc": "False",
+          "predict_pure_llm": "True",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 29",
+          "output": "Test output 29",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "True"
+        },
+        {
+          "input": "Test input 30",
+          "output": "Test output 30",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 31",
+          "output": "Test output 31",
+          "predict_otc": "True",
+          "predict_pure_llm": "True",
+          "predict_argos": "True",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 32",
+          "output": "Test output 32",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 33",
+          "output": "Test output 33",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 34",
+          "output": "Test output 34",
+          "predict_otc": "False",
+          "predict_pure_llm": "True",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 35",
+          "output": "Test output 35",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 36",
+          "output": "Test output 36",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "True",
+          "predict_symba": "True"
+        },
+        {
+          "input": "Test input 37",
+          "output": "Test output 37",
+          "predict_otc": "True",
+          "predict_pure_llm": "True",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 38",
+          "output": "Test output 38",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 39",
+          "output": "Test output 39",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 40",
+          "output": "Test output 40",
+          "predict_otc": "False",
+          "predict_pure_llm": "True",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 41",
+          "output": "Test output 41",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "True",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 42",
+          "output": "Test output 42",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 43",
+          "output": "Test output 43",
+          "predict_otc": "True",
+          "predict_pure_llm": "True",
+          "predict_argos": "False",
+          "predict_symba": "True"
+        },
+        {
+          "input": "Test input 44",
+          "output": "Test output 44",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 45",
+          "output": "Test output 45",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 46",
+          "output": "Test output 46",
+          "predict_otc": "False",
+          "predict_pure_llm": "True",
+          "predict_argos": "True",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 47",
+          "output": "Test output 47",
+          "predict_otc": "True",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 48",
+          "output": "Test output 48",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 49",
+          "output": "Test output 49",
+          "predict_otc": "True",
+          "predict_pure_llm": "True",
+          "predict_argos": "False",
+          "predict_symba": "False"
+        },
+        {
+          "input": "Test input 50",
+          "output": "Test output 50",
+          "predict_otc": "False",
+          "predict_pure_llm": "False",
+          "predict_argos": "False",
+          "predict_symba": "True"
+        }
+      ]
+    }
+  ]
+}
