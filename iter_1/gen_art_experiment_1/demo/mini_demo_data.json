@@ -1,0 +1,20 @@
+{
+  "examples": [
+    {
+      "input_text": "Alice is Bob's mother. Bob is Charlie's father. Alice is a woman. Bob is a man.",
+      "query": "grandmother(alice, charlie)",
+      "expected_facts": [
+        "parent(alice, bob)",
+        "parent(bob, charlie)",
+        "female(alice)",
+        "male(bob)"
+      ]
+    }
+  ],
+  "config": {
+    "model": "openai/gpt-4o-mini",
+    "use_mock_llm": true,
+    "max_abduction_calls": 5,
+    "timeout": 30
+  }
+}

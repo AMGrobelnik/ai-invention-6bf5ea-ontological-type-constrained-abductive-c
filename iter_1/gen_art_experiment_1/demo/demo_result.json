@@ -1,0 +1,15 @@
+{
+  "kind": "code_demo",
+  "id": "gen_art_experiment_1",
+  "type": "code",
+  "iteration": 1,
+  "title": "OTC Pipeline: Type-Constrained Abductive Reasoning",
+  "summary": "Implemented a proof-of-concept OTC (Ontological Type-Constrained) pipeline for neuro-symbolic reasoning. The system translates natural language text to Prolog clauses, performs SLD resolution with complete proof tree capture, extracts type constraints from failed proof attempts, and generates abduced facts constrained by ontological type checking (using ConceptNet API and a simplified ontology). The iterative proof loop adds ontologically consistent facts to successfully prove queries that initially fail. Evaluation on 15 synthetic examples demonstrates the pipeline architecture, with mock LLM mode for testing without API costs. The implementation includes: (1) TextToFOLTranslator for NL-to-Prolog translation, (2) PythonSLDResolver implementing SLD resolution with proof tree capture, (3) ConceptNetTypeChecker for ontological consistency validation, (4) TypeConstrainedAbducer for generating type-constrained candidate facts, (5) OTCExecutor for the iterative proof loop, and (6) OTCEvaluator for baseline comparison. Baselines include pure LLM reasoning, ARGOS-simplified (broad abduction without ontological filtering), and SymBa-simplified (interleaved translation-solving). The code is production-ready with proper logging, error handling, and modular design.",
+  "original_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_WBqO20RmkI2v/3_invention_loop/iter_1/gen_art/gen_art_experiment_1",
+  "demo_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_dnHZAazpq4x8/4_gen_paper_repo/_3_gen_art_demo/iter_1/gen_art_experiment_1",
+  "out_expected_files": {
+    "notebook": "code_demo.ipynb",
+    "mini_data_file": "mini_demo_data.json"
+  },
+  "notebook_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_dnHZAazpq4x8/4_gen_paper_repo/_3_gen_art_demo/iter_1/gen_art_experiment_1/method_code_demo.ipynb"
+}

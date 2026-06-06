@@ -1,0 +1,47 @@
+{
+  "datasets": [
+    {
+      "dataset": "entailment_bank_task2",
+      "examples": [
+        {
+          "input": "Context: sent1: leo is a kind of constellation | sent2: to be found in means to be contained in | sent3: move around means revolve | sent4: if something is a part of something else then that something...",
+          "output": "Earth revolves around the sun.",
+          "metadata_source": "entailment_bank_task_2",
+          "metadata_split": "train",
+          "metadata_proof": "sent1 & sent17 -> int1: leo is a constellation containing stars; int1 & sent25 -> hypothesis; ",
+          "metadata_depth": 2,
+          "metadata_id": "MDSA_2009_4_30",
+          "metadata_task_type": "entailment_reasoning"
+        },
+        {
+          "input": "Context: sent1: if something used to be in the past then that something has changed | sent2: appear is similar to apparent | sent3: apparent motion is when an object appears to move relative to anothe...",
+          "output": "Its position appears to shift relative to the horizon.",
+          "metadata_source": "entailment_bank_task_2",
+          "metadata_split": "train",
+          "metadata_proof": "sent11 & sent3 & sent8 -> int1: apparent motion of stars is when stars appear to move relative to earth's position; int1 & sent6 -> int2: the earth rotating on its axis causes apparent motion of stars...",
+          "metadata_depth": 3,
+          "metadata_id": "Mercury_SC_LBS10351",
+          "metadata_task_type": "entailment_reasoning"
+        },
+        {
+          "input": "Context: sent1: appear is similar to apparent | sent2: to rotate means to complete a rotation | sent3: stars appear to move relative to the horizon during the night | sent4: phase means state | sent5:...",
+          "output": "Earth rotates on its axis.",
+          "metadata_source": "entailment_bank_task_2",
+          "metadata_split": "train",
+          "metadata_proof": "sent11 & sent3 -> int1: stars apearing to move relative to the horizon during the night is an example of diurnal motion; int1 & sent18 -> hypothesis; ",
+          "metadata_depth": 2,
+          "metadata_id": "MCAS_2008_5_5638",
+          "metadata_task_type": "entailment_reasoning"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "total_examples": 3,
+    "n_datasets": 1,
+    "datasets_included": [
+      "entailment_bank_task2"
+    ],
+    "description": "Mini demo dataset for notebook demonstration"
+  }
+}
