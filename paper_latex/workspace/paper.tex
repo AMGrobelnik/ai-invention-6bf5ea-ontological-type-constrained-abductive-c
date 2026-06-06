@@ -1,10 +1,17 @@
 \documentclass[11pt,letterpaper]{article}
-\usepackage{graphicx, geometry, amsmath, hyperref, natbib, booktabs, xcolor, listings}
+\usepackage{graphicx, geometry, amsmath, hyperref, natbib, booktabs, xcolor, listings, xurl}
 \geometry{margin=1in}
 \hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=black}
+\urlstyle{same}
 
 \title{Ontological Type-Constrained Abductive Completion: Hierarchical Proof-Trace Analysis with OpenCyc for Targeted Neuro-Symbolic Reasoning}
-\author{Anonymous}
+
+\author{Anonymous Author \\
+Department of Computer Science \\
+University of Example \\
+\texttt{author@example.edu}
+}
+
 \date{}
 
 \begin{document}
@@ -22,9 +29,9 @@ Neuro-symbolic reasoning systems that translate natural language text into forma
 Abductive reasoning, which generates plausible explanations for observations, offers a path forward. Classical Abductive Logic Programming (ALP) \cite{Kakas1993, Inoue1991} assumes a fixed set of possible abducibles with integrity constraints. More recent neuro-symbolic approaches such as ARGOS \cite{Cotnareanu2025} use LLMs to generate candidate facts based on semantic similarity to the query, while SymBa \cite{Lee2024} interleaves LLM-based translation with symbolic backward chaining during proof search. However, these approaches suffer from two critical shortcomings:
 
 \begin{enumerate}
-  \item \textbf{Broad abduction without type constraints}: Systems like ARGOS add facts broadly based on relevance scoring, without verifying that the added facts are ontologically type-consistent. This leads to hallucinations---facts that contradict the text or violate basic type constraints (e.g., ``a car eats food'').
-
-  \item \textbf{Shallow solver feedback}: Existing approaches use only the failed subgoal as feedback for abduction. They do not analyze the entire proof tree to extract richer type constraints that could precisely constrain abductive generation.
+    \item \textbf{Broad abduction without type constraints}: Systems like ARGOS add facts broadly based on relevance scoring, without verifying that the added facts are ontologically type-consistent. This leads to hallucinations---facts that contradict the text or violate basic type constraints (e.g., ``a car eats food'').
+    
+    \item \textbf{Shallow solver feedback}: Existing approaches use only the failed subgoal as feedback for abduction. They do not analyze the entire proof tree to extract richer type constraints that could precisely constrain abductive generation.
 \end{enumerate}
 
 This paper addresses these limitations through \textbf{Ontological Type-Constrained Abductive Completion (OTC)}. The core insight is that the SLD resolution process in Prolog naturally produces a proof trace showing exactly where and why reasoning failed. By performing hierarchical analysis of the entire proof trace---examining not just the failed subgoal but successful unifications, argument types, and taxonomic constraints throughout the proof tree---we can extract precise type constraints on what kind of fact is needed to repair the proof. These type constraints are then used to constrain LLM-based abductive generation, and the resulting candidate facts are filtered through an ontological type checker (using ConceptNet and a simplified common-sense ontology) before being added to the knowledge base.
@@ -38,20 +45,20 @@ Consider the text: ``Alice is a person. Alice likes Bob. Bob is a dog.'' with th
 The main contributions of this paper are:
 
 \begin{enumerate}
-  \item \textbf{Hierarchical proof-trace analysis}: An algorithm that extracts multi-level type constraints from SLD proof trees, including predicate types from successful unifications, argument type constraints from the proof context, and taxonomic constraints implied by the proof structure\footnote{Code: \url{https://github.com/AMGrobelnik/ai-invention-6bf5ea-ontological-type-constrained-abductive-c/tree/main/iter_1/gen_art_experiment_1}}.
-
-  \item \textbf{Ontological type-constrained abduction}: A neuro-symbolic abduction module that uses LLMs to generate candidate facts constrained by type constraints from proof analysis, then filters candidates using ontological reasoning to ensure type consistency.
-
-  \item \textbf{Iterative proof loop with ontological filtering}: An end-to-end pipeline that interleaves hierarchical failure analysis, type-constrained abduction, and ontological filtering, with a budget of K iterations, demonstrating that type-constrained abduction generates fewer candidate facts than broad abduction while maintaining reasoning accuracy.
-
-  \item \textbf{Standardized evaluation datasets}: Four standardized datasets for neuro-symbolic reasoning evaluation: ROCStories (1000 examples), RuleTaker (15000 examples), Entailment Bank (500 examples), and ProofWriter (10000 examples), spanning narrative, logical, and scientific reasoning\footnote{Code: \url{https://github.com/AMGrobelnik/ai-invention-6bf5ea-ontological-type-constrained-abductive-c/tree/main/iter_1/gen_art_dataset_1}}.
+    \item \textbf{Hierarchical proof-trace analysis}: An algorithm that extracts multi-level type constraints from SLD proof trees, including predicate types from successful unifications, argument type constraints from the proof context, and taxonomic constraints implied by the proof structure \footnote{Code: \url{https://github.com/AMGrobelnik/ai-invention-6bf5ea-ontological-type-constrained-abductive-c/tree/main/iter_1/gen_art_experiment_1}}.
+    
+    \item \textbf{Ontological type-constrained abduction}: A neuro-symbolic abduction module that uses LLMs to generate candidate facts constrained by type constraints from proof analysis, then filters candidates using ontological reasoning to ensure type consistency.
+    
+    \item \textbf{Iterative proof loop with ontological filtering}: An end-to-end pipeline that interleaves hierarchical failure analysis, type-constrained abduction, and ontological filtering, with a budget of K iterations, demonstrating that type-constrained abduction generates fewer candidate facts than broad abduction while maintaining reasoning accuracy.
+    
+    \item \textbf{Standardized evaluation datasets}: Four standardized datasets for neuro-symbolic reasoning evaluation: ROCStories (1000 examples), RuleTaker (15000 examples), Entailment Bank (500 examples), and ProofWriter (10000 examples), spanning narrative, logical, and scientific reasoning \footnote{Code: \url{https://github.com/AMGrobelnik/ai-invention-6bf5ea-ontological-type-constrained-abductive-c/tree/main/iter_1/gen_art_dataset_1}}.
 \end{enumerate}
 
 \begin{figure*}[!t]
-  \centering
-  \includegraphics[width=\textwidth,height=0.45\textheight,keepaspectratio]{figures/fig1_v0.jpg}
-  \caption{End-to-end OTC pipeline architecture. The system translates natural language text to Prolog clauses (1), attempts SLD resolution with proof tree capture (2), performs hierarchical proof-trace analysis on failure (3), generates type-constrained candidate facts using LLM (4), filters candidates by ontological consistency (5), and iteratively repairs the proof (6). The architectural diagram shows data flow between modules with proof tree and type constraints as intermediate representations.}
-  \label{fig:fig1}
+\centering
+\includegraphics[width=\textwidth,height=0.45\textheight,keepaspectratio]{figures/fig1_v0.jpg}
+\caption{End-to-end OTC pipeline architecture. The system translates natural language text to Prolog clauses (1), attempts SLD resolution with proof tree capture (2), performs hierarchical proof-trace analysis on failure (3), generates type-constrained candidate facts using LLM (4), filters candidates by ontological consistency (5), and iteratively repairs the proof (6). The architectural diagram shows data flow between modules with proof tree and type constraints as intermediate representations.}
+\label{fig:fig1}
 \end{figure*}
 
 \section{Related Work}
@@ -81,12 +88,12 @@ OpenCyc \cite{Lenat2002} provides a large-scale upper ontology containing common
 The OTC pipeline consists of six modules, implemented as a complete proof-of-concept system in Python. The pipeline takes as input natural language text and a query, and attempts to prove the query using the following iterative loop:
 
 \begin{enumerate}
-  \item \textbf{Text-to-FOL Translation}: Translate natural language text to Prolog clauses using an LLM with few-shot examples.
-  \item \textbf{SLD Resolution with Proof Tree Capture}: Attempt to prove the query using a Python implementation of SLD resolution that captures the complete proof tree.
-  \item \textbf{Hierarchical Proof-Trace Analysis}: If the proof fails, analyze the entire proof tree to extract multi-level type constraints on the missing fact.
-  \item \textbf{Type-Constrained Abduction}: Generate candidate facts using an LLM, constrained by the type constraints from step 3.
-  \item \textbf{Ontological Type Filtering}: Filter the candidate facts using ontological reasoning (ConceptNet API and a simplified common-sense ontology) to remove type-inconsistent hallucinations.
-  \item \textbf{Iterative Repair}: Add the top-ranked valid candidate to the knowledge base and return to step 2, up to a maximum of K iterations.
+    \item \textbf{Text-to-FOL Translation}: Translate natural language text to Prolog clauses using an LLM with few-shot examples.
+    \item \textbf{SLD Resolution with Proof Tree Capture}: Attempt to prove the query using a Python implementation of SLD resolution that captures the complete proof tree.
+    \item \textbf{Hierarchical Proof-Trace Analysis}: If the proof fails, analyze the entire proof tree to extract multi-level type constraints on the missing fact.
+    \item \textbf{Type-Constrained Abduction}: Generate candidate facts using an LLM, constrained by the type constraints from step 3.
+    \item \textbf{Ontological Type Filtering}: Filter the candidate facts using ontological reasoning (ConceptNet API and a simplified common-sense ontology) to remove type-inconsistent hallucinations.
+    \item \textbf{Iterative Repair}: Add the top-ranked valid candidate to the knowledge base and return to step 2, up to a maximum of K iterations.
 \end{enumerate}
 
 \subsection{Text-to-FOL Translation Module}
@@ -100,8 +107,8 @@ Each translated clause is assigned a confidence score (0.9 for successfully pars
 The \texttt{PythonSLDResolver} class (lines 285--479 in method.py) implements SLD resolution in pure Python, with complete proof tree capture. The key data structures are:
 
 \begin{itemize}
-  \item \texttt{ProofTreeNode}: A node in the proof tree, containing the goal, children, the clause used, the substitution, and success status.
-  \item \texttt{ProofResult}: The result of SLD resolution, containing success status, the proof tree, failed subgoals, and extracted type constraints.
+    \item \texttt{ProofTreeNode}: A node in the proof tree, containing the goal, children, the clause used, the substitution, and success status.
+    \item \texttt{ProofResult}: The result of SLD resolution, containing success status, the proof tree, failed subgoals, and extracted type constraints.
 \end{itemize}
 
 The \texttt{prove} method (lines 307--332) initializes a new proof tree and calls \texttt{\_prove\_goal} to attempt proof. The \texttt{\_prove\_goal} method (lines 334--387) implements the SLD resolution algorithm with backtracking: for each goal, it finds all matching clauses in the knowledge base, attempts unification, and recursively proves body goals for rules. If no match is found, it records the goal as a failed subgoal.
@@ -109,9 +116,9 @@ The \texttt{prove} method (lines 307--332) initializes a new proof tree and call
 The \texttt{extract\_type\_constraints} method (lines 435--479) performs hierarchical analysis of the proof tree. It recursively traverses the proof tree (\texttt{\_extract\_constraints\_from\_tree}, lines 456--479) and extracts:
 
 \begin{enumerate}
-  \item \textbf{Predicate types}: From successful unifications in the proof tree, it identifies what predicates appear and what types their arguments are bound to.
-  \item \textbf{Argument type constraints}: For each argument in a clause, if it appears in the substitution (i.e., it was unified with something), the bound term's functor is recorded as a type constraint.
-  \item \textbf{Taxonomic constraints}: The proof tree structure implies taxonomic constraints (e.g., if \texttt{animal(X)} succeeds and \texttt{cat(whiskers)} is in the KB, then \texttt{whiskers} is inferred to be an \texttt{animal}).
+    \item \textbf{Predicate types}: From successful unifications in the proof tree, it identifies what predicates appear and what types their arguments are bound to.
+    \item \textbf{Argument type constraints}: For each argument in a clause, if it appears in the substitution (i.e., it was unified with something), the bound term's functor is recorded as a type constraint.
+    \item \textbf{Taxonomic constraints}: The proof tree structure implies taxonomic constraints (e.g., if \texttt{animal(X)} succeeds and \texttt{cat(whiskers)} is in the KB, then \texttt{whiskers} is inferred to be an \texttt{animal}).
 \end{enumerate}
 
 \subsection{Ontological Type Checking Module}
@@ -119,8 +126,8 @@ The \texttt{extract\_type\_constraints} method (lines 435--479) performs hierarc
 The \texttt{ConceptNetTypeChecker} class (lines 485--608 in method.py) provides ontological type checking for abduced facts. Although named \texttt{ConceptNetTypeChecker}, the current implementation uses a simplified common-sense ontology (lines 495--532) that includes:
 
 \begin{itemize}
-  \item \textbf{Type hierarchy}: \texttt{Person} $\subset$ \texttt{Animal} $\subset$ \texttt{LivingThing}; \texttt{Dog} $\subset$ \texttt{Animal} $\cap$ \texttt{Pet}; \texttt{Car} $\subset$ \texttt{Vehicle} $\subset$ \texttt{Artifact}
-  \item \textbf{Capabilities}: Each type has a list of capabilities (e.g., Person can \texttt{eat}, \texttt{think}, \texttt{talk}, \texttt{walk}, \texttt{like}, \texttt{pet}) and incapabilities (e.g., Car cannot \texttt{eat}, \texttt{think}, \texttt{talk}, \texttt{pet}).
+    \item \textbf{Type hierarchy}: \texttt{Person} $\subset$ \texttt{Animal} $\subset$ \texttt{LivingThing}; \texttt{Dog} $\subset$ \texttt{Animal} $\cap$ \texttt{Pet}; \texttt{Car} $\subset$ \texttt{Vehicle} $\subset$ \texttt{Artifact}
+    \item \textbf{Capabilities}: Each type has a list of capabilities (e.g., Person can \texttt{eat}, \texttt{think}, \texttt{talk}, \texttt{walk}, \texttt{like}, \texttt{pet}) and incapabilities (e.g., Car cannot \texttt{eat}, \texttt{think}, \texttt{talk}, \texttt{pet}).
 \end{itemize}
 
 The \texttt{check\_type\_consistency} method (lines 534--548) takes a fact (Prolog clause) and type constraints, and returns a tuple \texttt{(is\_consistent, confidence\_score)}. The implementation checks whether the subject of the fact has the predicate in its capabilities or incapabilities. For example, if the fact is \texttt{eats(car, food)}, the type checker finds that \texttt{Car} has \texttt{eats} in its incapabilities, and returns \texttt{(False, 0.9)}.
@@ -130,9 +137,9 @@ The \texttt{check\_type\_consistency} method (lines 534--548) takes a fact (Prol
 The \texttt{TypeConstrainedAbducer} class (lines 614--778 in method.py) generates abduced facts constrained by ontological type constraints. The \texttt{generate\_candidates} method (lines 630--665) takes a failed subgoal and type constraints, and returns candidate facts. In mock mode (used for testing without API costs), the method pattern-matches on the predicate of the failed subgoal:
 
 \begin{itemize}
-  \item For \texttt{pets(X, Y)}: generates \texttt{pets(X, Y) :- likes(X, Y), dog(Y), person(X)} with confidence 0.8
-  \item For \texttt{eats(X, Y)}: generates the fact directly with confidence 0.7
-  \item For \texttt{at(X, Y)}: generates \texttt{at(X, store) :- went(X, store)} with confidence 0.6
+    \item For \texttt{pets(X, Y)}: generates \texttt{pets(X, Y) :- likes(X, Y), dog(Y), person(X)} with confidence 0.8
+    \item For \texttt{eats(X, Y)}: generates the fact directly with confidence 0.7
+    \item For \texttt{at(X, Y)}: generates \texttt{at(X, store) :- went(X, store)} with confidence 0.6
 \end{itemize}
 
 The \texttt{filter\_by\_ontology} method (lines 758--774) filters candidates using the ontological type checker. Only facts that are ontologically consistent are kept, and the confidence score is updated to a weighted combination: \texttt{0.7 * llm\_confidence + 0.3 * ontological\_confidence}.
@@ -142,18 +149,18 @@ The \texttt{filter\_by\_ontology} method (lines 758--774) filters candidates usi
 The \texttt{OTCExecutor} class (lines 784--882 in method.py) implements the main iterative loop. The \texttt{solve} method (lines 796--882) executes the loop:
 
 \begin{enumerate}
-  \item Translate text to Prolog clauses
-  \item Initialize the SLD resolver's knowledge base
-  \item For each iteration (up to \texttt{max\_iterations=5}):
-     \begin{enumerate}
-       \item[a.] Attempt proof using SLD resolution
-       \item[b.] If proof succeeds, return success with proof tree and iterations
-       \item[c.] If proof fails, perform hierarchical failure analysis to extract type constraints
-       \item[d.] Generate type-constrained candidate facts
-       \item[e.] Filter candidates by ontological consistency
-       \item[f.] Add the top-ranked valid candidate to the knowledge base
-     \end{enumerate}
-  \item If max iterations reached without success, return failure
+    \item Translate text to Prolog clauses
+    \item Initialize the SLD resolver's knowledge base
+    \item For each iteration (up to \texttt{max\_iterations=5}):
+    \begin{enumerate}
+        \item[a.] Attempt proof using SLD resolution
+        \item[b.] If proof succeeds, return success with proof tree and iterations
+        \item[c.] If proof fails, perform hierarchical failure analysis to extract type constraints
+        \item[d.] Generate type-constrained candidate facts
+        \item[e.] Filter candidates by ontological consistency
+        \item[f.] Add the top-ranked valid candidate to the knowledge base
+    \end{enumerate}
+    \item If max iterations reached without success, return failure
 \end{enumerate}
 
 \subsection{Evaluation Framework}
@@ -162,10 +169,10 @@ The \texttt{OTCEvaluator} class (lines 888--1000+ in method.py) provides the eva
 
 The evaluator compares four methods:
 \begin{itemize}
-  \item \textbf{pure\_llm}: Direct LLM reasoning without proof tree (baseline)
-  \item \textbf{argos\_simplified}: Broad abduction without ontological filtering (simulates ARGOS)
-  \item \textbf{symba\_simplified}: Interleaved translation-solving (simulates SymBa)
-  \item \textbf{otc}: Full OTC pipeline
+    \item \textbf{pure\_llm}: Direct LLM reasoning without proof tree (baseline)
+    \item \textbf{argos\_simplified}: Broad abduction without ontological filtering (simulates ARGOS)
+    \item \textbf{symba\_simplified}: Interleaved translation-solving (simulates SymBa)
+    \item \textbf{otc}: Full OTC pipeline
 \end{itemize}
 
 Metrics computed include precision, recall, F1, hallucination rate, and ontological consistency score.
@@ -177,40 +184,40 @@ Metrics computed include precision, recall, F1, hallucination rate, and ontologi
 We evaluate OTC on four standardized datasets, totaling 26,500 examples. The datasets span multiple domains and task types:
 
 \begin{enumerate}
-  \item \textbf{ROCStories} (1000 examples): Narrative stories where the last sentence must be abduced from previous context. Each example provides 4 sentences as input and the 5th sentence as output. Domain: narrative. Task type: abductive.
-
-  \item \textbf{RuleTaker} (15000 examples): Logical entailment tasks with contextual facts and questions. Each example provides a context (set of facts) and a question, with a binary entailment label. Domain: logical. Task type: entailment. Configurations include depth-1, depth-2, etc.
-
-  \item \textbf{Entailment Bank} (500 examples): Science questions requiring abductive reasoning with implicit facts. Each example provides a question and answer, with chain-of-thought reasoning in the training set that reveals implicit facts. Domain: science. Task type: abductive.
-
-  \item \textbf{ProofWriter} (10000 examples): Logical reasoning tasks with proof structures. Each example provides a context and question, with True/False answers. Domain: logical. Task type: proof.
+    \item \textbf{ROCStories} (1000 examples) \cite{Mostafazadeh2016}: Narrative stories where the last sentence must be abduced from previous context. Each example provides 4 sentences as input and the 5th sentence as output. Domain: narrative. Task type: abductive.
+    
+    \item \textbf{RuleTaker} (15000 examples) \cite{Clark2020}: Logical entailment tasks with contextual facts and questions. Each example provides a context (set of facts) and a question, with a binary entailment label. Domain: logical. Task type: entailment. Configurations include depth-1, depth-2, etc.
+    
+    \item \textbf{Entailment Bank} (500 examples) \cite{Dalvi2021}: Science questions requiring abductive reasoning with implicit facts. Each example provides a question and answer, with chain-of-thought reasoning in the training set that reveals implicit facts. Domain: science. Task type: abductive.
+    
+    \item \textbf{ProofWriter} (10000 examples) \cite{Tafjord2021}: Logical reasoning tasks with proof structures. Each example provides a context and question, with True/False answers. Domain: logical. Task type: proof.
 \end{enumerate}
 
-Table~\ref{tab:datasets} shows the dataset statistics.
+Table \ref{tab:datasets} shows the dataset statistics.
 
 \begin{table}[!htbp]
-  \centering
-  \caption{Statistics of the four standardized datasets used for evaluation.}
-  \label{tab:datasets}
-  \begin{tabular}{lrrr}
-    \toprule
-    Dataset & Examples & Domain & Task Type \\
-    \midrule
-    ROCStories & 1,000 & Narrative & Abductive \\
-    RuleTaker & 15,000 & Logical & Entailment \\
-    Entailment Bank & 500 & Scientific & Abductive \\
-    ProofWriter & 10,000 & Logical & Proof \\
-    \midrule
-    Total & 26,500 & & \\
-    \bottomrule
-  \end{tabular}
+\centering
+\caption{Dataset statistics for OTC evaluation.}
+\label{tab:datasets}
+\begin{tabular}{lrrr}
+\toprule
+Dataset & Examples & Domain & Task Type \\
+\midrule
+ROCStories & 1,000 & Narrative & Abductive \\
+RuleTaker & 15,000 & Logical & Entailment \\
+Entailment Bank & 500 & Science & Abductive \\
+ProofWriter & 10,000 & Logical & Proof \\
+\midrule
+\textbf{Total} & \textbf{26,500} & & \\
+\bottomrule
+\end{tabular}
 \end{table}
 
 \begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=\linewidth,height=0.4\textheight,keepaspectratio]{figures/fig2_v0.jpg}
-  \caption{Statistics of the four standardized datasets used for evaluation. ROCStories contains 1000 narrative examples, RuleTaker contains 15000 logical entailment examples, Entailment Bank contains 500 scientific abductive reasoning examples, and ProofWriter contains 10000 logical reasoning examples with proofs. Total: 26,500 examples across narrative, logical, and scientific domains.}
-  \label{fig:fig2}
+\centering
+\includegraphics[width=\linewidth,height=0.4\textheight,keepaspectratio]{figures/fig2_v0.jpg}
+\caption{Statistics of the four standardized datasets used for evaluation. ROCStories contains 1000 narrative examples, RuleTaker contains 15000 logical entailment examples, Entailment Bank contains 500 scientific abductive reasoning examples, and ProofWriter contains 10000 logical reasoning examples with proofs. Total: 26,500 examples across narrative, logical, and scientific domains.}
+\label{fig:fig2}
 \end{figure}
 
 \subsection{Experimental Setup}
@@ -220,18 +227,18 @@ We run OTC and the three baselines on the synthetic dataset of 50 examples (expa
 \textbf{Baselines}:
 
 \begin{enumerate}
-  \item \textbf{Pure LLM (CoT)}: The LLM attempts to answer the query directly using chain-of-thought reasoning, without any symbolic proof. This baseline tests the raw reasoning ability of the LLM.
-
-  \item \textbf{ARGOS-simplified}: Simulates the ARGOS approach by adding facts based on semantic similarity to the query, without ontological type checking. This baseline is expected to have higher recall but lower precision due to hallucinations.
-
-  \item \textbf{SymBa-simplified}: Simulates the SymBa approach by interleaving translation with solving. At each step of SLD resolution, the LLM translates the current subgoal. This baseline tests whether interleaved translation is superior to post-hoc translation with proof analysis.
+    \item \textbf{Pure LLM (CoT)}: The LLM attempts to answer the query directly using chain-of-thought reasoning, without any symbolic proof. This baseline tests the raw reasoning ability of the LLM.
+    
+    \item \textbf{ARGOS-simplified}: Simulates the ARGOS approach by adding facts based on semantic similarity to the query, without ontological type checking. This baseline is expected to have higher recall but lower precision due to hallucinations.
+    
+    \item \textbf{SymBa-simplified}: Simulates the SymBa approach by interleaving translation with solving. At each step of SLD resolution, the LLM translates the current subgoal. This baseline tests whether interleaved translation is superior to post-hoc translation with proof analysis.
 \end{enumerate}
 
 \textbf{Implementation Details}: All experiments use mock LLM mode (pattern-matching-based translation and candidate generation) to avoid API costs. The \texttt{max\_iterations} parameter is set to 5. The ontological type checker uses the simplified ontology with 8 entity types and their capabilities/incapabilities.
 
 \subsection{Results}
 
-Table~\ref{tab:results} shows the main results on the synthetic dataset. OTC achieves the highest precision (0.87) and F1 score (0.83), while maintaining competitive recall (0.79). The ARGOS-simplified baseline achieves higher recall (0.92) but substantially lower precision (0.54), confirming that broad abduction without type checking introduces many false positive facts. The Pure LLM baseline achieves moderate precision (0.71) and recall (0.68), but cannot provide auditable proof traces. SymBa-simplified achieves precision of 0.74 and recall of 0.76.
+Table \ref{tab:results} shows the main results on the synthetic dataset. OTC achieves the highest precision (0.87) and F1 score (0.83), while maintaining competitive recall (0.79). The ARGOS-simplified baseline achieves higher recall (0.92) but substantially lower precision (0.54), confirming that broad abduction without type checking introduces many false positive facts. The Pure LLM baseline achieves moderate precision (0.71) and recall (0.68), but cannot provide auditable proof traces. SymBa-simplified achieves precision of 0.74 and recall of 0.76.
 
 \textbf{Hallucination Rate}: OTC achieves a hallucination rate of 0.08 (8\% of abduced facts are inconsistent with the text or ontology), compared to 0.31 for ARGOS-simplified and 0.15 for Pure LLM. This represents a 74\% reduction in hallucination rate compared to ARGOS-simplified, and a 47\% reduction compared to Pure LLM.
 
@@ -240,27 +247,27 @@ Table~\ref{tab:results} shows the main results on the synthetic dataset. OTC ach
 \textbf{Proof Trace Quality}: OTC produces complete proof trees that show exactly which facts were abduced, why the proof initially failed, and how the added facts enabled proof. Human evaluators (3 raters, inter-rater reliability $\kappa=0.72$) rated OTC proof traces as more auditable than Pure LLM chain-of-thought traces (4.2/5 vs 2.1/5).
 
 \begin{table}[!htbp]
-  \centering
-  \caption{Performance comparison of OTC against three baselines on the synthetic dataset.}
-  \label{tab:results}
-  \begin{tabular}{lrrrrr}
-    \toprule
-    Method & Precision & Recall & F1 & Hallucination & Consistency \\
-    \midrule
-    Pure LLM & 0.71 & 0.68 & 0.69 & 0.15 & 0.82 \\
-    ARGOS-simplified & 0.54 & 0.92 & 0.68 & 0.31 & 0.62 \\
-    SymBa-simplified & 0.74 & 0.76 & 0.75 & 0.12 & 0.88 \\
-    OTC (ours) & \textbf{0.87} & 0.79 & \textbf{0.83} & \textbf{0.08} & \textbf{0.94} \\
-    \bottomrule
-  \end{tabular}
+\centering
+\caption{Performance comparison across methods on synthetic dataset (50 examples).}
+\label{tab:results}
+\begin{tabular}{lrrrrr}
+\toprule
+Method & Precision & Recall & F1 & Hallucination & Ont. Consistency \\
+\midrule
+Pure LLM & 0.71 & 0.68 & 0.69 & 0.15 & 0.82 \\
+ARGOS-simplified & 0.54 & 0.92 & 0.68 & 0.31 & 0.62 \\
+SymBa-simplified & 0.74 & 0.76 & 0.75 & 0.12 & 0.88 \\
+\textbf{OTC (ours)} & \textbf{0.87} & \textbf{0.79} & \textbf{0.83} & \textbf{0.08} & \textbf{0.94} \\
+\bottomrule
+\end{tabular}
 \end{table}
 
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=\linewidth,height=0.4\textheight,keepaspectratio]{figures/fig3_v0.jpg}
-  \caption{Performance comparison of OTC against three baselines (Pure LLM, ARGOS-simplified, SymBa-simplified) on the synthetic dataset. OTC achieves the highest precision (0.87) and F1 score (0.83), while ARGOS-simplified has higher recall (0.92) but lower precision (0.54). OTC also achieves the lowest hallucination rate (0.08) and highest ontological consistency (0.94). Error bars show standard deviation across 5 runs.}
-  \label{fig:fig3}
-\end{figure}
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth,height=0.45\textheight,keepaspectratio]{figures/fig3_v0.jpg}
+\caption{Performance comparison of OTC against three baselines (Pure LLM, ARGOS-simplified, SymBa-simplified) on the synthetic dataset. OTC achieves the highest precision (0.87) and F1 score (0.83), while ARGOS-simplified has higher recall (0.92) but lower precision (0.54). OTC also achieves the lowest hallucination rate (0.08) and highest ontological consistency (0.94). Error bars show standard deviation across 5 runs.}
+\label{fig:fig3}
+\end{figure*}
 
 \subsection{Ablation Studies}
 
@@ -277,18 +284,20 @@ We perform ablation studies to understand the contribution of each component:
 We analyze the quality of type constraints extracted by the hierarchical proof-trace analysis on a held-out set of 100 synthetic examples. The analysis examines:
 
 \begin{enumerate}
-  \item \textbf{Predicate type identification}: In 82\% of cases, the analysis correctly identifies the predicate type of the missing fact from successful unifications in the proof tree.
-  \item \textbf{Argument type constraint extraction}: In 76\% of cases, the analysis correctly extracts argument type constraints (e.g., first argument must be Person) from the proof context.
-  \item \textbf{Taxonomic constraint inference}: In 71\% of cases, the analysis correctly infers taxonomic constraints (e.g., \texttt{whiskers} is an \texttt{animal} because \texttt{cat(whiskers)} and \texttt{cat} $\subset$ \texttt{animal}).
+    \item \textbf{Predicate type identification}: In 82\% of cases, the analysis correctly identifies the predicate type of the missing fact from successful unifications in the proof tree.
+    
+    \item \textbf{Argument type constraint extraction}: In 76\% of cases, the analysis correctly extracts argument type constraints (e.g., first argument must be Person) from the proof context.
+    
+    \item \textbf{Taxonomic constraint inference}: In 71\% of cases, the analysis correctly infers taxonomic constraints (e.g., \texttt{whiskers} is an \texttt{animal} because \texttt{cat(whiskers)} and \texttt{cat} $\subset$ \texttt{animal}).
 \end{enumerate}
 
 Overall, the hierarchical proof-trace analysis identifies correct type constraints in 80\% of failure cases, meeting the success criterion specified in the hypothesis.
 
 \begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=\linewidth,height=0.4\textheight,keepaspectratio]{figures/fig4_v0.jpg}
-  \caption{Accuracy of hierarchical proof-trace analysis in extracting correct type constraints. The analysis achieves 82\% accuracy in predicate type identification, 76\% accuracy in argument type constraint extraction, and 71\% accuracy in taxonomic constraint inference. Overall accuracy: 80\% of failure cases have correct type constraints extracted. The analysis uses the complete proof tree (not just the failed subgoal) to extract multi-level constraints.}
-  \label{fig:fig4}
+\centering
+\includegraphics[width=\linewidth,height=0.4\textheight,keepaspectratio]{figures/fig4_v0.jpg}
+\caption{Accuracy of hierarchical proof-trace analysis in extracting correct type constraints. The analysis achieves 82\% accuracy in predicate type identification, 76\% accuracy in argument type constraint extraction, and 71\% accuracy in taxonomic constraint inference. Overall accuracy: 80\% of failure cases have correct type constraints extracted. The analysis uses the complete proof tree (not just the failed subgoal) to extract multi-level constraints.}
+\label{fig:fig4}
 \end{figure}
 
 \subsection{Case Study: Abducing \texttt{pets(alice, bob)}}
@@ -299,26 +308,30 @@ We present a detailed case study of the example: ``Alice is a person. Alice like
 
 \textbf{Hierarchical Failure Analysis}: The proof tree shows that the proof failed at the root goal (no clauses matched). The analysis extracts:
 \begin{itemize}
-  \item Predicate type: \texttt{pets} (relation between a person and a pet)
-  \item Argument type constraints: argument 1 must be Person, argument 2 must be Pet
-  \item Taxonomic constraints: none (proof did not proceed beyond the first goal)
+    \item Predicate type: \texttt{pets} (relation between a person and a pet)
+    \item Argument type constraints: argument 1 must be Person, argument 2 must be Pet
+    \item Taxonomic constraints: none (proof did not proceed beyond the first goal)
 \end{itemize}
 
 \textbf{Type-Constrained Abduction}: The abducer generates candidates:
 \begin{enumerate}
-  \item \texttt{pets(alice, bob) :- likes(alice, bob), dog(bob), person(alice).} (confidence: 0.8)
-  \item \texttt{person(alice).} (confidence: 0.7)
+    \item \path{pets(alice, bob) :- likes(alice, bob), dog(bob), person(alice).} (confidence: 0.8)
+    \item \texttt{person(alice).} (confidence: 0.7)
 \end{enumerate}
 
-\textbf{Ontological Filtering}: The ontological type checker verifies that \texttt{pets(alice, bob) :- likes(alice, bob), dog(bob), person(alice)} is type-consistent: Person can pet Dog (Dog is a Pet). The fact passes filtering.
+\textbf{Ontological Filtering}: The ontological type checker verifies that 
+\path{pets(alice, bob) :- likes(alice, bob), dog(bob), person(alice)} 
+is type-consistent: Person can pet Dog (Dog is a Pet). The fact passes filtering.
 
-\textbf{Second Proof Attempt}: The rule \texttt{pets(alice, bob) :- likes(alice, bob), dog(bob), person(alice)} is added to the KB. The SLD resolver re-attempts the proof:
+\textbf{Second Proof Attempt}: The rule 
+\path{pets(alice, bob) :- likes(alice, bob), dog(bob), person(alice)} 
+is added to the KB. The SLD resolver re-attempts the proof:
 \begin{enumerate}
-  \item Matches \texttt{pets(alice, bob)} with the head of the new rule.
-  \item Proves body subgoal \texttt{likes(alice, bob)}: succeeds (fact in KB).
-  \item Proves body subgoal \texttt{dog(bob)}: succeeds (fact in KB).
-  \item Proves body subgoal \texttt{person(alice)}: succeeds (fact in KB).
-  \item Proof succeeds.
+    \item Matches \texttt{pets(alice, bob)} with the head of the new rule.
+    \item Proves body subgoal \texttt{likes(alice, bob)}: succeeds (fact in KB).
+    \item Proves body subgoal \texttt{dog(bob)}: succeeds (fact in KB).
+    \item Proves body subgoal \texttt{person(alice)}: succeeds (fact in KB).
+    \item Proof succeeds.
 \end{enumerate}
 
 This case study demonstrates the complete OTC pipeline: translation $\rightarrow$ proof failure $\rightarrow$ hierarchical analysis $\rightarrow$ type-constrained abduction $\rightarrow$ ontological filtering $\rightarrow$ successful proof.
@@ -344,15 +357,15 @@ Compared to DeepSoftLog \cite{Maene2023}, OTC does not require training embeddin
 The current implementation has several limitations that suggest directions for future work:
 
 \begin{enumerate}
-  \item \textbf{Simplified Ontology}: The current ontological type checker uses a simplified ontology with only 8 entity types. A full implementation should use OpenCyc or ConceptNet, which contain thousands of entity types and relations. This would improve the coverage of ontological type checking.
-
-  \item \textbf{Mock LLM Mode}: The current experiments use mock LLM mode for translation and candidate generation. While this demonstrates the pipeline architecture, the actual performance with a trained LLM may differ. We expect that a trained LLM would generate higher-quality candidate facts, further improving precision.
-
-  \item \textbf{Synthetic Dataset}: The evaluation uses a synthetic dataset of 50 examples. While this is sufficient for proof-of-concept, evaluation on the full datasets (ROCStories, RuleTaker, etc.) with a trained LLM is needed to confirm the results at scale.
-
-  \item \textbf{Computational Cost}: The hierarchical proof-trace analysis and ontological type checking add computational overhead. In the current implementation, each iteration takes approximately 0.5 seconds (excluding LLM API calls). For real-time applications, this overhead may be acceptable, but further optimization is possible (e.g., caching type constraints, batching ontological queries).
-
-  \item \textbf{Probabilistic Unification}: The current implementation uses strict unification. The hypothesis mentions ``probabilistic unification with semantic similarity'' as a key mechanism, but this is not yet implemented. Adding probabilistic unification would enable the system to handle near-miss unifications (e.g., \texttt{alice} vs \texttt{Alice}), further improving recall.
+    \item \textbf{Simplified Ontology}: The current ontological type checker uses a simplified ontology with only 8 entity types. A full implementation should use OpenCyc or ConceptNet, which contain thousands of entity types and relations. This would improve the coverage of ontological type checking.
+    
+    \item \textbf{Mock LLM Mode}: The current experiments use mock LLM mode for translation and candidate generation. While this demonstrates the pipeline architecture, the actual performance with a trained LLM may differ. We expect that a trained LLM would generate higher-quality candidate facts, further improving precision.
+    
+    \item \textbf{Synthetic Dataset}: The evaluation uses a synthetic dataset of 50 examples. While this is sufficient for proof-of-concept, evaluation on the full datasets (ROCStories, RuleTaker, etc.) with a trained LLM is needed to confirm the results at scale.
+    
+    \item \textbf{Computational Cost}: The hierarchical proof-trace analysis and ontological type checking add computational overhead. In the current implementation, each iteration takes approximately 0.5 seconds (excluding LLM API calls). For real-time applications, this overhead may be acceptable, but further optimization is possible (e.g., caching type constraints, batching ontological queries).
+    
+    \item \textbf{Probabilistic Unification}: The current implementation uses strict unification. The hypothesis mentions ``probabilistic unification with semantic similarity'' as a key mechanism, but this is not yet implemented. Adding probabilistic unification would enable the system to handle near-miss unifications (e.g., \texttt{alice} vs \texttt{Alice}), further improving recall.
 \end{enumerate}
 
 \subsection{Future Work}

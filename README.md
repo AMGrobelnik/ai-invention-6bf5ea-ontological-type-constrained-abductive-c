@@ -8,6 +8,17 @@ This repository contains artifacts from an AI-generated research project.
 
 ## Artifacts
 
+### Datasets
+
+| Title | Demo | Source Code |
+|-------|------|-------------|
+| [4 datasets for neuro-symbolic reasoning evaluation](https://github.com/AMGrobelnik/ai-invention-6bf5ea-ontological-type-constrained-abductive-c/tree/main/iter_1/gen_art_dataset_1) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AMGrobelnik/ai-invention-6bf5ea-ontological-type-constrained-abductive-c/blob/main/iter_1/gen_art_dataset_1/demo/data_code_demo.ipynb) | [![Source Code](https://img.shields.io/badge/Source_Code-2962FF)](https://github.com/AMGrobelnik/ai-invention-6bf5ea-ontological-type-constrained-abductive-c/tree/main/iter_1/gen_art_dataset_1/src) |
+
+### Experiments
+
+| Title | Demo | Source Code |
+|-------|------|-------------|
+| [OTC Pipeline: Type-Constrained Abductive Reasoning](https://github.com/AMGrobelnik/ai-invention-6bf5ea-ontological-type-constrained-abductive-c/tree/main/iter_1/gen_art_experiment_1) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AMGrobelnik/ai-invention-6bf5ea-ontological-type-constrained-abductive-c/blob/main/iter_1/gen_art_experiment_1/demo/method_code_demo.ipynb) | [![Source Code](https://img.shields.io/badge/Source_Code-2962FF)](https://github.com/AMGrobelnik/ai-invention-6bf5ea-ontological-type-constrained-abductive-c/tree/main/iter_1/gen_art_experiment_1/src) |
 
 ## Repository Structure
 

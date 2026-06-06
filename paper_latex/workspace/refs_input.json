@@ -1,0 +1,59 @@
+{
+  "references": [
+    {
+      "title": "SymBa: Symbolic Backward Chaining for Structured Natural Language Reasoning",
+      "author": "Lee",
+      "year": 2024
+    },
+    {
+      "arxiv": "2601.18595",
+      "author": "Cotnareanu",
+      "year": 2025
+    },
+    {
+      "title": "Divide and Translate: Compositional First-Order Logic Translation and Verification for Complex Logical Reasoning",
+      "author": "Ryu",
+      "year": 2024
+    },
+    {
+      "title": "Abductive Logic Programming",
+      "author": "Kakas",
+      "year": 1993
+    },
+    {
+      "title": "Computing Abduction Using the TMS",
+      "author": "Inoue",
+      "year": 1991
+    },
+    {
+      "title": "Soft-Unification in Deep Probabilistic Logic",
+      "author": "Maene",
+      "year": 2023
+    },
+    {
+      "title": "OpenCyc: An Upper-Level Ontology for NLP and the Semantic Web",
+      "author": "Lenat",
+      "year": 2002
+    },
+    {
+      "title": "A Corpus and Cloze Evaluation for Deeper Understanding of Commonsense Stories",
+      "author": "Mostafazadeh",
+      "year": 2016
+    },
+    {
+      "title": "Transformers as Soft Reasoners: Reasoning with Neural Networks and Symbolic Logic",
+      "author": "Clark",
+      "year": 2020
+    },
+    {
+      "title": "ProofWriter: Generating Implications, Proofs, and Abductive Statements over Natural Language",
+      "author": "Tafjord",
+      "year": 2021
+    },
+    {
+      "title": "Explaining Answers with Entailment Trees",
+      "author": "Dalvi",
+      "year": 2021
+    }
+  ]
+}

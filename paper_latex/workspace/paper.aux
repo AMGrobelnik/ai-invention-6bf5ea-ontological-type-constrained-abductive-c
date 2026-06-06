@@ -16,31 +16,35 @@
 \newlabel{fig:fig1}{{1}{3}{End-to-end OTC pipeline architecture. The system translates natural language text to Prolog clauses (1), attempts SLD resolution with proof tree capture (2), performs hierarchical proof-trace analysis on failure (3), generates type-constrained candidate facts using LLM (4), filters candidates by ontological consistency (5), and iteratively repairs the proof (6). The architectural diagram shows data flow between modules with proof tree and type constraints as intermediate representations}{figure.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{3}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Neuro-Symbolic Text-to-Logic Translation}{3}{subsection.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Abductive Reasoning in Neuro-Symbolic Systems}{3}{subsection.2.2}\protected@file@percent }
 \citation{Lee2024}
 \citation{Kakas1993,Inoue1991}
 \citation{Lenat2002}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Abductive Reasoning in Neuro-Symbolic Systems}{4}{subsection.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Classical Abductive Logic Programming}{4}{subsection.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Ontological Reasoning for Neuro-Symbolic Systems}{4}{subsection.2.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Methods}{4}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Overview of the OTC Pipeline}{4}{subsection.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Text-to-FOL Translation Module}{5}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Hierarchical SLD Proof Tracer}{5}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Ontological Type Checking Module}{5}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Ontological Type Checking Module}{6}{subsection.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Type-Constrained Abduction Module}{6}{subsection.3.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Iterative Proof Loop}{6}{subsection.3.6}\protected@file@percent }
+\citation{Mostafazadeh2016}
+\citation{Clark2020}
+\citation{Dalvi2021}
+\citation{Tafjord2021}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Evaluation Framework}{7}{subsection.3.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{7}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Datasets}{7}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Experimental Setup}{7}{subsection.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Statistics of the four standardized datasets used for evaluation.}}{8}{table.1}\protected@file@percent }
-\newlabel{tab:datasets}{{1}{8}{Statistics of the four standardized datasets used for evaluation}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Dataset statistics for OTC evaluation.}}{8}{table.1}\protected@file@percent }
+\newlabel{tab:datasets}{{1}{8}{Dataset statistics for OTC evaluation}{table.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Statistics of the four standardized datasets used for evaluation. ROCStories contains 1000 narrative examples, RuleTaker contains 15000 logical entailment examples, Entailment Bank contains 500 scientific abductive reasoning examples, and ProofWriter contains 10000 logical reasoning examples with proofs. Total: 26,500 examples across narrative, logical, and scientific domains.}}{8}{figure.2}\protected@file@percent }
 \newlabel{fig:fig2}{{2}{8}{Statistics of the four standardized datasets used for evaluation. ROCStories contains 1000 narrative examples, RuleTaker contains 15000 logical entailment examples, Entailment Bank contains 500 scientific abductive reasoning examples, and ProofWriter contains 10000 logical reasoning examples with proofs. Total: 26,500 examples across narrative, logical, and scientific domains}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Experimental Setup}{9}{subsection.4.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Results}{9}{subsection.4.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Performance comparison of OTC against three baselines on the synthetic dataset.}}{9}{table.2}\protected@file@percent }
-\newlabel{tab:results}{{2}{9}{Performance comparison of OTC against three baselines on the synthetic dataset}{table.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Ablation Studies}{9}{subsection.4.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Performance comparison across methods on synthetic dataset (50 examples).}}{10}{table.2}\protected@file@percent }
+\newlabel{tab:results}{{2}{10}{Performance comparison across methods on synthetic dataset (50 examples)}{table.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Performance comparison of OTC against three baselines (Pure LLM, ARGOS-simplified, SymBa-simplified) on the synthetic dataset. OTC achieves the highest precision (0.87) and F1 score (0.83), while ARGOS-simplified has higher recall (0.92) but lower precision (0.54). OTC also achieves the lowest hallucination rate (0.08) and highest ontological consistency (0.94). Error bars show standard deviation across 5 runs.}}{10}{figure.3}\protected@file@percent }
 \newlabel{fig:fig3}{{3}{10}{Performance comparison of OTC against three baselines (Pure LLM, ARGOS-simplified, SymBa-simplified) on the synthetic dataset. OTC achieves the highest precision (0.87) and F1 score (0.83), while ARGOS-simplified has higher recall (0.92) but lower precision (0.54). OTC also achieves the lowest hallucination rate (0.08) and highest ontological consistency (0.94). Error bars show standard deviation across 5 runs}{figure.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Analysis of Hierarchical Proof-Trace Analysis}{10}{subsection.4.5}\protected@file@percent }
@@ -53,16 +57,20 @@
 \@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{12}{section.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Interpretation of Results}{12}{subsection.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Comparison to Prior Work}{12}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Limitations}{12}{subsection.5.3}\protected@file@percent }
-\bibstyle{plainnat}
-\bibdata{references}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Limitations}{13}{subsection.5.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Future Work}{13}{subsection.5.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{13}{section.6}\protected@file@percent }
-\bibcite{Cotnareanu2025}{{1}{2025}{{Cotnareanu et~al.}}{{Cotnareanu, Ch\'{e}telat, Zhang, and Coates}}}
-\bibcite{Inoue1991}{{2}{1991}{{Inoue}}{{}}}
-\bibcite{Kakas1993}{{3}{1992}{{Kakas et~al.}}{{Kakas, Kowalski, and Toni}}}
-\bibcite{Lee2024}{{4}{2024}{{Lee and Hwang}}{{}}}
-\bibcite{Lenat2002}{{5}{2002}{{Lenat}}{{}}}
-\bibcite{Maene2023}{{6}{2023}{{Maene and Raedt}}{{}}}
-\bibcite{Ryu2024}{{7}{2024}{{Ryu et~al.}}{{Ryu, Kim, Lee, and Yang}}}
-\gdef \@abspage@last{14}
+\bibstyle{plainnat}
+\bibdata{references}
+\bibcite{Clark2020}{{1}{2020}{{Clark et~al.}}{{Clark, Tafjord, and Richardson}}}
+\bibcite{Cotnareanu2025}{{2}{2025}{{Cotnareanu et~al.}}{{Cotnareanu, Ch{\'e}telat, Zhang, and Coates}}}
+\bibcite{Dalvi2021}{{3}{2021}{{Dalvi et~al.}}{{Dalvi, Jansen, Tafjord, Xie, Smith, Pipatanangkura, and Clark}}}
+\bibcite{Inoue1991}{{4}{1991}{{Inoue}}{{}}}
+\bibcite{Kakas1993}{{5}{1993}{{Kakas et~al.}}{{Kakas, Kowalski, and Toni}}}
+\bibcite{Lee2024}{{6}{2024}{{Lee and Hwang}}{{}}}
+\bibcite{Lenat2002}{{7}{2002}{{Lenat}}{{}}}
+\bibcite{Maene2023}{{8}{2023}{{Maene and De~Raedt}}{{}}}
+\bibcite{Mostafazadeh2016}{{9}{2016}{{Mostafazadeh et~al.}}{{Mostafazadeh, Chambers, He, Parikh, Batra, Vanderwende, Kohli, and Allen}}}
+\bibcite{Ryu2024}{{10}{2024}{{Ryu et~al.}}{{Ryu, Kim, Lee, and Yang}}}
+\bibcite{Tafjord2021}{{11}{2021}{{Tafjord et~al.}}{{Tafjord, Dalvi, and Clark}}}
+\gdef \@abspage@last{15}

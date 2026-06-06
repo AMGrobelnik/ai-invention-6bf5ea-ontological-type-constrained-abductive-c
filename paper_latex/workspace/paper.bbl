@@ -1,54 +1,81 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{11}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Cotnareanu et~al.(2025)Cotnareanu, Ch\'{e}telat, Zhang, and
+\bibitem[Clark et~al.(2020)Clark, Tafjord, and Richardson]{Clark2020}
+P~Clark, O~Tafjord, and K~Richardson.
+\newblock Transformers as soft reasoners: Reasoning with neural networks and
+  symbolic logic.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 4005--4014, 2020.
+
+\bibitem[Cotnareanu et~al.(2025)Cotnareanu, Ch{\'e}telat, Zhang, and
   Coates]{Cotnareanu2025}
-Joseph Cotnareanu, Didier Ch\'{e}telat, Yingxue Zhang, and Mark Coates.
+J~Cotnareanu, D~Ch{\'e}telat, Y~Zhang, and M~Coates.
 \newblock A balanced neuro-symbolic approach for commonsense abductive logic.
-\newblock \emph{arXiv preprint arXiv:2601.18595}, 2025.
-\newblock \doi{10.48550/arXiv.2601.18595}.
+\newblock \emph{ArXiv preprint abs/2601.18595}, 2025.
+
+\bibitem[Dalvi et~al.(2021)Dalvi, Jansen, Tafjord, Xie, Smith, Pipatanangkura,
+  and Clark]{Dalvi2021}
+B~Dalvi, P~Jansen, O~Tafjord, Z~Xie, H~Smith, L~Pipatanangkura, and P~Clark.
+\newblock Explaining answers with entailment trees.
+\newblock In \emph{Proceedings of the 2021 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 735--751, 2021.
 
 \bibitem[Inoue(1991)]{Inoue1991}
-Katsumi Inoue.
+K~Inoue.
 \newblock Computing abduction using the tms.
 \newblock In \emph{Proceedings of the International Conference on Fifth
   Generation Computer Systems (FGCS)}, pages 1162--1167, 1991.
 
-\bibitem[Kakas et~al.(1992)Kakas, Kowalski, and Toni]{Kakas1993}
-Antonis~C. Kakas, Robert~A. Kowalski, and Francesca Toni.
+\bibitem[Kakas et~al.(1993)Kakas, Kowalski, and Toni]{Kakas1993}
+A~C Kakas, R~A Kowalski, and F~Toni.
 \newblock Abductive logic programming.
 \newblock \emph{Journal of Logic and Computation}, 2\penalty0 (6):\penalty0
-  719--770, 1992.
-\newblock \doi{10.1093/logcom/2.6.719}.
+  719--770, 1993.
 
 \bibitem[Lee and Hwang(2024)]{Lee2024}
-Jinu Lee and Wonseok Hwang.
+J~Lee and W~Hwang.
 \newblock Symba: Symbolic backward chaining for structured natural language
   reasoning.
-\newblock In \emph{Proceedings of the North American Chapter of the Association
+\newblock \emph{Proceedings of the North American Chapter of the Association
   for Computational Linguistics}, pages 2468--2484, 2024.
-\newblock \doi{10.18653/v1/2025.naacl-long.124}.
 
 \bibitem[Lenat(2002)]{Lenat2002}
-Douglas~B. Lenat.
-\newblock {OpenCyc}: An upper-level ontology for {NLP} and the semantic web.
+D~Lenat.
+\newblock Opencyc: An upper-level ontology for nlp and the semantic web.
 \newblock \emph{AI Magazine}, 23\penalty0 (3):\penalty0 16--20, 2002.
-\newblock \doi{10.1609/aimag.v23i3.1654}.
 
-\bibitem[Maene and Raedt(2023)]{Maene2023}
-J.~Maene and Luc~De Raedt.
+\bibitem[Maene and De~Raedt(2023)]{Maene2023}
+J~Maene and L~De~Raedt.
 \newblock Soft-unification in deep probabilistic logic.
-\newblock In \emph{Advances in Neural Information Processing Systems 36
-  (NeurIPS 2023)}, 2023.
+\newblock \emph{Advances in Neural Information Processing Systems 36 (NeurIPS
+  2023)}, 2023.
+
+\bibitem[Mostafazadeh et~al.(2016)Mostafazadeh, Chambers, He, Parikh, Batra,
+  Vanderwende, Kohli, and Allen]{Mostafazadeh2016}
+N~Mostafazadeh, N~Chambers, X~He, D~Parikh, D~Batra, L~Vanderwende, P~Kohli,
+  and J~F Allen.
+\newblock A corpus and cloze evaluation for deeper understanding of commonsense
+  stories.
+\newblock In \emph{Proceedings of the North American Chapter of the Association
+  for Computational Linguistics}, pages 982--992, 2016.
 
 \bibitem[Ryu et~al.(2024)Ryu, Kim, Lee, and Yang]{Ryu2024}
-Hyun Ryu, Gyeongman Kim, Hyemin~S. Lee, and Eunho Yang.
+H~Ryu, G~Kim, H~S Lee, and E~Yang.
 \newblock Divide and translate: Compositional first-order logic translation and
   verification for complex logical reasoning.
-\newblock In \emph{International Conference on Learning Representations}, 2024.
+\newblock \emph{International Conference on Learning Representations (ICLR)},
+  2024.
+
+\bibitem[Tafjord et~al.(2021)Tafjord, Dalvi, and Clark]{Tafjord2021}
+O~Tafjord, B~Dalvi, and P~Clark.
+\newblock Proofwriter: Generating implications, proofs, and abductive
+  statements over natural language.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  ACL-IJCNLP 2021}, pages 3621--3634, 2021.
 
 \end{thebibliography}
